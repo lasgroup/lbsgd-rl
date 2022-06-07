@@ -4,8 +4,8 @@ import tensorflow_probability as tfp
 from tensorflow.keras.mixed_precision import experimental as prec
 from tensorflow_probability import distributions as tfd
 
-import lbsgd_rl.building_blocks as blocks
-import lbsgd_rl.utils as utils
+import building_blocks as blocks
+import utils
 
 
 class WorldModel(tf.Module):

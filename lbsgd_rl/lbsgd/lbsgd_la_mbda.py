@@ -1,11 +1,11 @@
 import tensorflow as tf
 
-from lbsgd_rl.la_mbda import LAMBDA, gather_optimistic_pessimistic_sample
-from lbsgd_rl import utils
-from lbsgd_rl.lbsgd.lbsgd_actor import SafeActor
+import la_mbda
+import utils
+from lbsgd.lbsgd_actor import SafeActor
 
 
-class LogBarrierSafeAgent(LAMBDA):
+class LogBarrierSafeAgent(la_mbda.LAMBDA):
 
   def __init__(self, config, logger, observation_space, action_space):
     super(LogBarrierSafeAgent, self).__init__(config, logger, observation_space,
@@ -36,7 +36,7 @@ class LogBarrierSafeAgent(LAMBDA):
                                   tf.concat([[-1], shape[2:]], 0))
       values = tf.reshape(self.critic(ravel_features).mode(), shape[:3])
       optimistic_sample, optimistic_value, pessimistic_sample, _ = \
-          gather_optimistic_pessimistic_sample(posterior_sequences, values)
+          la_mbda.gather_optimistic_pessimistic_sample(posterior_sequences, values)
       lambda_values = self._compute_objective(
           optimistic_sample, tf.cast(optimistic_value, self._dtype))
       actor_loss = -tf.reduce_mean(lambda_values * discount[:-1])
@@ -48,8 +48,8 @@ class LogBarrierSafeAgent(LAMBDA):
             pessimistic_cost_value,
             optimistic_cost_sample,
             _,
-        ) = gather_optimistic_pessimistic_sample(posterior_sequences,
-                                                 cost_values)
+        ) = la_mbda.gather_optimistic_pessimistic_sample(
+            posterior_sequences, cost_values)
         alpha, vc = self._compute_safety_penalty(
             pessimistic_cost_sample, tf.cast(pessimistic_cost_value,
                                              self._dtype))

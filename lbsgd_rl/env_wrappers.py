@@ -5,7 +5,7 @@ from gym import Wrapper, ObservationWrapper
 from gym.spaces.box import Box
 from gym.wrappers import RescaleAction
 
-import lbsgd_rl.utils as utils
+import utils
 
 IMAGE_CROP_ENVS = ['manipulator', 'stacker', 'pointmass']
 

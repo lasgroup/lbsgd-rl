@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-from lbsgd_rl.models import Actor
+from models import Actor
 
 
 class LogBarrierAdaptiveStepSize(tf.Module):

@@ -1,1 +1,1 @@
-import lbsgd_rl.lbsgd.envs
+from lbsgd.envs import easy, hard

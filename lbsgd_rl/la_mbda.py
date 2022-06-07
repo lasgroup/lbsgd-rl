@@ -3,10 +3,10 @@ import tensorflow as tf
 from tensorflow.keras.mixed_precision import experimental as prec
 from tqdm import tqdm
 
-import lbsgd_rl.models as models
-import lbsgd_rl.utils as utils
-from lbsgd_rl.replay_buffer import ReplayBuffer
-from lbsgd_rl.swag_world_model import SwagWorldModel
+import models
+import utils
+from replay_buffer import ReplayBuffer
+from swag_world_model import SwagWorldModel
 
 
 class LAMBDA(tf.Module):

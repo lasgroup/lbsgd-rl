@@ -4,7 +4,7 @@ from tensorflow.keras.mixed_precision import experimental as prec
 from tensorflow_probability import stats as tfps
 from tf_agents.replay_buffers import episodic_replay_buffer
 
-import lbsgd_rl.utils as utils
+import utils
 
 
 class EpisodeBuffer(object):

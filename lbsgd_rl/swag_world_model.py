@@ -1,9 +1,9 @@
 import tensorflow as tf
 from tensorflow_addons.optimizers import CyclicalLearningRate
 
-import lbsgd_rl.models as models
-from lbsgd_rl.bayesian_world_model import BayesianWorldModel
-from lbsgd_rl.swag import SWAG, WeightsSampler
+import models
+from bayesian_world_model import BayesianWorldModel
+from swag import SWAG, WeightsSampler
 
 
 class CyclicLearningRate(CyclicalLearningRate):
