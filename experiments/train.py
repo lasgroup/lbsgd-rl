@@ -27,7 +27,6 @@ def define_config():
       'batch_size': 32,
       'warmup_training_steps': 5000,
       # MODELS
-      'model_name': 'RSSM',
       'kl_scale': 1.0,
       'kl_mix': 0.8,
       'free_nats': 3.0,

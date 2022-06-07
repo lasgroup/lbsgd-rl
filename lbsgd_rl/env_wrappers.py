@@ -71,14 +71,16 @@ def make_safety_gym_env(name, episode_length, rendered):
   else:
     # https://github.com/openai/gym/issues/499
     env._max_episode_steps = episode_length
-  # Turning manually on the 'observe_vision' flag so a rendering context gets opened and
+  # Turning manually on the 'observe_vision' flag so a rendering context gets
+  # opened and
   # all object types rendering is on (L.302, safety_gym.world.py).
   env.unwrapped.vision_size = (64, 64)
   env.unwrapped.observe_vision = rendered
   env.unwrapped.vision_render = False
   obs_vision_swap = env.unwrapped.obs_vision
 
-  # Making rendering within obs() function (in safety_gym) not actually render the scene on
+  # Making rendering within obs() function (in safety_gym) not actually
+  # render the scene on
   # default so that rendering only occur upon calling to 'render()'.
   from PIL import ImageOps
 
@@ -106,7 +108,8 @@ def make_safety_gym_env(name, episode_length, rendered):
   return env
 
 
-# Copied from https://github.com/danijar/dreamer/blob/02f0210f5991c7710826ca7881f19c64a012290c
+# Copied from https://github.com/danijar/dreamer/blob
+# /02f0210f5991c7710826ca7881f19c64a012290c
 # /wrappers.py
 class ActionRepeat(Wrapper):
 

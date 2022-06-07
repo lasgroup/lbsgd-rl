@@ -142,7 +142,9 @@ class WorldModel(tf.Module):
         self._reward_decoder(features).log_prob(batch['reward']))
     log_p_terminals = tf.reduce_mean(
         self._terminal_decoder(features).log_prob(batch['terminal']))
-    loss = self._kl_scale * kl_loss - log_p_observations - log_p_rewards - log_p_terminals
+    loss = (
+        self._kl_scale * kl_loss - log_p_observations - log_p_rewards -
+        log_p_terminals)
     results = dict(
         loss=loss,
         kl=kl,
@@ -155,7 +157,8 @@ class WorldModel(tf.Module):
       unsafe = tf.greater_equal(batch['cost'], 1.0)
       log_p_cost = self._cost_decoder(features).log_prob(
           tf.cast(unsafe, self._dtype))
-      # Cost distribution is potentially imbalanced, hence we weight more unsafe states.
+      # Cost distribution is potentially imbalanced, hence we weight more
+      # unsafe states.
       log_p_cost = tf.reduce_mean(
           tf.where(unsafe, log_p_cost * self._cost_weight, log_p_cost))
       results['loss'] -= log_p_cost
@@ -177,7 +180,7 @@ class WorldModel(tf.Module):
     z_t = initial_belief['stochastic']
     for t in range(horizon):
       action = actor(tf.stop_gradient(features)).sample() \
-          if actions is None else actions[:, t]
+        if actions is None else actions[:, t]
       action = tf.cast(action, self._dtype)
       prior, z_t, d_t = self._predict(z_t, d_t, action)
       features = tf.concat([z_t, d_t], -1)
@@ -193,7 +196,8 @@ class WorldModel(tf.Module):
     return stacked
 
 
-# https://github.com/danijar/dreamerv2/blob/259e3faa0e01099533e29b0efafdf240adeda4b5/common/nets
+# https://github.com/danijar/dreamerv2/blob
+# /259e3faa0e01099533e29b0efafdf240adeda4b5/common/nets
 # .py#L130
 def balanced_kl_loss(posterior, prior, free_nats, mix):
   sg = lambda x: tf.nest.map_structure(tf.stop_gradient, x)
