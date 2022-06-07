@@ -7,10 +7,10 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.mixed_precision import experimental as prec
 
-import env_wrappers as env_wrappers
-import utils as utils
-from la_mbda import LAMBDA
-from lbsgd.lbsgd_la_mbda import LogBarrierSafeAgent
+import lbsgd_rl.env_wrappers as env_wrappers
+import lbsgd_rl.utils as utils
+from lbsgd_rl.la_mbda import LAMBDA
+from lbsgd_rl.lbsgd.lbsgd_la_mbda import LogBarrierSafeAgent
 
 
 def define_config():
