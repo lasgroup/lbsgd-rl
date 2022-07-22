@@ -49,19 +49,12 @@ python3 lbsgd_rl/plot.py --data_path <json_file_data_path>
 ```
 @misc{https://doi.org/10.48550/arxiv.2207.10415,
   doi = {10.48550/ARXIV.2207.10415},
-  
   url = {https://arxiv.org/abs/2207.10415},
-  
   author = {Usmanova, Ilnura and As, Yarden and Kamgarpour, Maryam and Krause, Andreas},
-  
   keywords = {Optimization and Control (math.OC), Machine Learning (cs.LG), FOS: Mathematics, FOS: Mathematics, FOS: Computer and information sciences, FOS: Computer and information sciences},
-  
   title = {Log Barriers for Safe Black-box Optimization with Application to Safe Reinforcement Learning},
-  
   publisher = {arXiv},
-  
   year = {2022},
-  
   copyright = {Creative Commons Attribution 4.0 International}
 }
 ```
