@@ -1,5 +1,5 @@
 # Log-barrier Stochastic Gradient Descent for Safe Reinforcement Learning
-The repository contains an implementation of a flavor of [LAMBDA](https://github.com/yardenas/la-mbda), which solves constrained Markov decision processes by using LB-SGD, instead of the more typically used Lagrangian methods.
+The repository contains an implementation of a flavor of [LAMBDA](https://github.com/yardenas/la-mbda), which solves constrained Markov decision processes by using LB-SGD, instead of the more typically used Lagrangian methods. Paper preprint [here](https://arxiv.org/abs/2207.10415)
 
 ## Install
 Create a self-contained environment (via [conda](https://docs.conda.io/en/latest/) or [virtualenv](https://virtualenv.pypa.io/en/latest/)); for instance:
